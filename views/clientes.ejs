@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>Lista de Clientes</h1>
+  <% if (cliente && cliente.length> 0) { %>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Id Cliente</th>
+          <th>Nombre</th>
+          <th>DNI</th>
+          <th>Email</th>
+          <th>Capital Solicitado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% cliente.forEach(cliente=> { %>
+          <tr>
+            <td>
+              <%= cliente.id_clientes %>
+            </td>
+            <td>
+              <%= cliente.nombre %>
+            </td>
+            <td>
+              <%= cliente.dni %>
+            </td>
+            <td>
+              <%= cliente.email %>
+            </td>
+            <td>
+              <%= cliente.capitalSolicitado %>
+            </td>
+          </tr>
+          <% }); %>
+      </tbody>
+    </table>
+    <% } else { %>
+      <p>No hay clientes en la base de datos.</p>
+      <% } %>
+
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+openapi: 3.0.3
+info:
+  title: Roams - OpenAPI 3.0
+  version: 0.0.1
+  description: This is an API that allows you to do CRUD operations on clients. 
+servers:
+  - url: https://localhost/
+externalDocs:
+  description: Encuentra mas sobre esta API
+  url: https://github.com/mariaact
+tags:
+  - name: clientes
+    description: Todo sobre los clientes
+
+paths:
+  /clientes:
+    get: 
+      tags: 
+        - clientes
+      summary: Obtener toda la información de los clientes de la API
+      description: Recuperar toda la información de los clientes disponibles
+      responses: 
+        '200': 
+          description: Toda la información de los clientes se recuperó correctamente.
+          content:
+            application/json:
+              schema: 
+                type: array
+                items:
+                  $ref: "#/components/schemas/cliente"
+        '404':
+          description: No hay clientes / siguiente parámetro
+          content:
+            text/html:
+              schema:
+                $ref: "#/components/schemas/error"
+    post:
+      tags: 
+        - clientes
+      summary: Añadir un nuevo cliente 
+      description: Crea un nuevo cliente con la información proporcionada.
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema: 
+              $ref: "#/components/schemas/cliente"
+      responses: 
+        '201': 
+          description: Se creó un nuevo cliente con éxito basado en la información proporcionada.
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/new_element"
+        '400':
+          description: Solicitud realizada incorrectamente por el cliente debido a los parámetros.
+          content: 
+            text/html:
+              schema:
+                $ref: '#/components/schemas/error'
+  /cliente/{id}:
+    parameters: 
+      - $ref: "#/components/parameters/id"
+    get:
+      tags: 
+        - clientes
+      summary: Obtiene un cliente de la API
+      description: Recupera toda la información de un cliente en especifico
+      responses: 
+        '200': 
+          description: Se ha recuperado toda la información de un cliente correctamente
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/cliente"
+        '404':
+          description: No existe un cliente con ese identificador
+          content:
+            text/html:
+              schema:
+                $ref: "#/components/schemas/error"
+    put:
+      tags: 
+        - clientes
+      summary: Actualiza un cliente de la API
+      description: Actualiza toda o parte de la información de un cliente en especifico
+      requestBody:
+        required: true
+        content: 
+          application/json:
+              schema: 
+                $ref: "#/components/schemas/cliente"
+      responses: 
+        '200': 
+          description: Toda la información proporcionada por un cliente en específico se ha actualizado correctamente
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/update_element"
+        '400':
+          description: Solicitud realizada incorrectamente por un cliente debido a algún parámetro erróneo
+          content: 
+            text/html:
+              schema:
+                $ref: '#/components/schemas/error'
+        '404':
+          description: No existe un cliente con ese identificador
+          content:
+            text/html:
+              schema:
+                $ref: "#/components/schemas/error"
+    delete:
+      tags: 
+        - clientes
+      summary: Elimina un cliente de la API 
+      description: Elimina toda la información de un cliente en específico
+      responses: 
+        '200': 
+          description: Toda la información del cliente se ha eliminado correctamente
+        '404':
+          description: No existe un cliente con ese identificado
+          content:
+            text/html:
+              schema:
+                $ref: "#/components/schemas/error"  
+  /cliente/{id}/hipoteca:
+    parameters: 
+      - $ref: "#/components/parameters/id"
+    get:
+      tags: 
+        - hipoteca
+      summary: Obtiene la hipoteca de un cliente en especifico
+      description: Obtiene la información necesaria de un cliente para obtener su hipoteca
+      requestBody:
+        required: true
+        content: 
+          application/json:
+              schema: 
+                $ref: "#/components/schemas/hipoteca"
+      responses: 
+        '200': 
+          description: Se ha recuperado la informacion necesaria para calcular la hipoteca de un cliente
+          content:
+            application/xml:
+              schema: 
+                $ref: "#/components/schemas/hipoteca"
+        '400':
+          description: Solicitud realizada incorrectamente por un cliente debido a algún parámetro erróneo
+          content: 
+            text/html:
+              schema:
+                $ref: '#/components/schemas/error'
+        '404':
+          description: No existe un cliente con ese identificador
+          content:
+            text/html:
+              schema:
+                $ref: "#/components/schemas/error"
+  
+components:
+  parameters: 
+    id: 
+      description: Identificador único para un recurso
+      name: id
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/id"
+
+  schemas: 
+    id: 
+      type: integer
+      example: 1
+    hipoteca:
+      type: object
+      properties: 
+        tae:
+          type: number
+          description: tae de la hipoteca
+        plazo: 
+          type: number
+          description: plazo de la hipoteca
+      required: 
+        - tae
+        - plazo
+    
+      example: {
+          "tae": 3.5,
+          "plazo": 10
+      }
+   
+    cliente:
+      type: object
+      properties: 
+        id: 
+          $ref: "#/components/schemas/id"
+        nombre:
+          type: string
+          description: Nombre del cliente.
+        dni: 
+          type: string
+          description: DNI de cada cliente.
+        email: 
+          type: string
+          description: email de un cliente.
+        capitalSolicitado: 
+          type: number
+          description: capital de un cliente. 
+      required: 
+        - id
+        - nombre
+        - dni
+        - email
+        - CapitalSolictado
+      example: {
+          "nombre": "maria",
+          "dni": "08536952R",
+          "email": "maria@gmail.com",
+          "capitalSolicitado": "1000"
+      }
+    new_element:
+      type: object
+      properties:
+        message: 
+          type: string
+          description:  Mensaje de que se ha realizado correctamente
+        id_cliente: 
+          description: ID del nuevo elemento creado
+          type: integer
+      example: {
+        "message": "cliente creado correctamente",
+        "id": 5
+      }
+    update_element:
+      type: object
+      properties:
+        message: 
+          type: string
+          description:  Mensaje de que se ha realizado correctamente
+        id_cliente: 
+          description: ID del nuevo elemento actualizado
+          type: integer
+      example: {
+        "message": "cliente actualizado correctamente",
+        "id": 5
+      }
+    error:
+      type: string
+      enum: ["Solicitud incorrecta realizada por el cliente debido a un parámetros", 
+              "No existe un cliente con ese identificador",
+              "El recurso especificado no fue encontrado"]
+      example: "Solicitud incorrecta realizada por el cliente debido a un parámetros"
+  
+  

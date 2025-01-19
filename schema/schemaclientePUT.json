@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+      "nombre": { "type": "string" },
+      "dni": { "type": "string" },
+      "email": { "type": "string" },
+      "capitalSolicitado": { "type": "string" }
+    },
+    "additionalProperties": false
+  }
