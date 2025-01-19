@@ -7,7 +7,7 @@ Es necesario tener instaladas las herramientas de `Node.js`,  la base de datos `
 
 ## Preparación del entorno
 ### Instalación de Node.js
-Descargue e instale la versión 18.20.5 LTS de Node.js del siguiente link: https://nodejs.org/en/
+Descargue e instale la versión 18.20.5 LTS de Node.js del siguiente link: [https://nodejs.org/en/](https://nodejs.org/es/download)
 
 Compruebe que lo ha instalado correctamente, en la shell escriba:
 ~~~
@@ -19,15 +19,15 @@ v18.20.5
 ~~~
 
 ### Instalación de SQLite
-Primero instale la interfaz gráfica `SQLiteStudio`. Se puede descargar del siguiente link: https://sqlitestudio.pl/.
+Instale la interfaz gráfica `SQLiteStudio`. Se puede descargar del siguiente link: https://sqlitestudio.pl/.
 
 ### Creación y carga de datos en base de datos
 Se siguen los siguientes pasos:
-1. Abrir SQLiteStudio.
+1. Abre SQLiteStudio.
 
 2. En el menu de iconos pulsar en el icono en el que muestra el mensaje `Añadir una base de datos`.
 
-3. Se establece un nuevo fichero database y se selecciona el fichero `Clientes.db` del repositorio.
+3. Se establece un nuevo fichero database y para ello seleccione el fichero `Clientes.db` del repositorio.
 
 4. Se tiene que asegurar que en la base de datos tenga dos tablas ya creadas llamadas `Clientes` y `Hipoteca`. 
 
@@ -39,7 +39,6 @@ Antes de arrancar el servidor es necesario instalarse las dependencias que utili
 >npm install
 ~~~
 
-<a name="item1"></a>
 ## Despliegue y ejecución
 
 ### Servidor Web
@@ -49,8 +48,8 @@ Para ejecutar el programa, abra una shell, y dentro de la raíz del proyecto (ru
 >npm start
 ~~~
 
-Según reciba peticiones HTTP del lado del cliente, aparecerán por el postman los mensajes asociados a las respuestas que enviará el servidor.
+Según reciba peticiones HTTP del lado del cliente, aparecerán por el Postman los mensajes asociados a las respuestas que enviará el servidor.
 
-Hay que destacar que para el correcto funcionamiento del cliente y el servidor, es necesario que el cliente introduzca correcta y exactamente los parámetros que se piden por pantalla y utilizar solamente las rutas definidas en  `OpenAPI.yaml`.
+Hay que destacar que para el correcto funcionamiento del cliente y el servidor, es necesario que el cliente introduzca correcta y exactamente los parámetros que se piden y utilizar solamente las rutas definidas en  `OpenAPI.yaml`.
 
 
