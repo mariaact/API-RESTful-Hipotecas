@@ -33,7 +33,7 @@ Se siguen los siguientes pasos:
 
 
 ### Instalación de dependencias
-Antes de arrancar el servidor es necesario instalarse las dependencias que utiliza el proyecto. En una shell se debe ejecutar el siguiente comando en la ruta `/API-REST` para que instale automáticamente las dependencias utilizadas:
+Antes de arrancar el servidor es necesario instalarse las dependencias que utiliza el proyecto. En una shell se debe ejecutar el siguiente comando en la ruta `/API-RESTful-Hipotecas` para que instale automáticamente las dependencias utilizadas:
 
 ~~~
 >npm install
