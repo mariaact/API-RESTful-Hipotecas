@@ -79,7 +79,7 @@ paths:
             text/html:
               schema:
                 $ref: "#/components/schemas/error"
-  /cliente/{id}:
+  /clientes/{id}:
     parameters: 
       - $ref: "#/components/parameters/id"
     put:
@@ -126,7 +126,7 @@ paths:
             text/html:
               schema:
                 $ref: "#/components/schemas/error"  
-  /cliente/{id}/hipoteca:
+  /clientes/{id}/hipoteca:
     parameters: 
       - $ref: "#/components/parameters/id"
     get:
