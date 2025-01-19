@@ -207,8 +207,8 @@ router.delete('/:id', async function (req, res, next) {
 });
 
 /* GET /clientes */
-router.get('/:id', async function (req, res, next) {
-  const clienteId = req.params.id;
+router.get('/:dni', async function (req, res, next) {
+  const clientedni= req.params.dni;
 
   // Conectar a la base de datos
   dbo.connectToDatabase();
@@ -218,7 +218,7 @@ router.get('/:id', async function (req, res, next) {
 
   // Comprobar si el cliente existe antes de intentar actualizarlo
   const clienteExistente = await new Promise((resolve, reject) => {
-    dbConnect.get("SELECT * FROM Clientes WHERE id_clientes = ?", [clienteId], (err, row) => {
+    dbConnect.get("SELECT * FROM Clientes WHERE dni = ?", [clientedni], (err, row) => {
       if (err) {
         reject("500 - Error al consultar la base de datos.");
       } else if (!row) {
@@ -233,10 +233,10 @@ router.get('/:id', async function (req, res, next) {
     return res.status(404).send("404 - No existe un cliente con ese identificador.");
   }
   // Consulta para borrar a cliente
-  const sql = `SELECT * FROM Clientes WHERE id_clientes = ?`;
+  const sql = `SELECT * FROM Clientes WHERE dni = ?`;
 
   //Borrar los datos
-  dbConnect.get(sql, [clienteId], function (err, rows) {
+  dbConnect.get(sql, [clientedni], function (err, rows) {
     if (err) {
       res.send("500 - Ha ocurrido un error al consultar la base de datos").status(500);
     }
