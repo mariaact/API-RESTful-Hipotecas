@@ -51,6 +51,6 @@ Para ejecutar el programa, abra una shell, y dentro de la raíz del proyecto (ru
 
 Según reciba peticiones HTTP del lado del cliente, aparecerán por el postman los mensajes asociados a las respuestas que enviará el servidor.
 
-Hay que destacar que para el correcto funcionamiento del cliente y el servidor, es necesario que el cliente introduzca correcta y exactamente los parámetros que se piden por pantalla y utilizar solamente las rutas definidas en  `songifyApi/schema/OpenAPI.yaml`.
+Hay que destacar que para el correcto funcionamiento del cliente y el servidor, es necesario que el cliente introduzca correcta y exactamente los parámetros que se piden por pantalla y utilizar solamente las rutas definidas en  `OpenAPI.yaml`.
 
 
