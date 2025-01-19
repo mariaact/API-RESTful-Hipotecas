@@ -7,7 +7,7 @@ servers:
   - url: https://localhost/
 externalDocs:
   description: Encuentra mas sobre esta API
-  url: https://github.com/mariaact
+  url: https://github.com/mariaact/API-RESTful-Hipotecas
 tags:
   - name: clientes
     description: Todo sobre los clientes
