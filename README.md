@@ -33,7 +33,7 @@ Se siguen los siguientes pasos:
 
 
 ### Instalación de dependencias
-Antes de arrancar el servidor es necesario instalarse las dependencias que utiliza el proyecto. En una shell se debe ejecutar el siguiente comando en la ruta `/API-REST` para que instale automáticamente las dependencias utilizadas:
+Antes de arrancar el servidor es necesario instalarse las dependencias que utiliza el proyecto. En una shell se debe ejecutar el siguiente comando en la ruta `/API-RESTful-Hipotecas` para que instale automáticamente las dependencias utilizadas:
 
 ~~~
 >npm install
@@ -51,6 +51,6 @@ Para ejecutar el programa, abra una shell, y dentro de la raíz del proyecto (ru
 
 Según reciba peticiones HTTP del lado del cliente, aparecerán por el postman los mensajes asociados a las respuestas que enviará el servidor.
 
-Hay que destacar que para el correcto funcionamiento del cliente y el servidor, es necesario que el cliente introduzca correcta y exactamente los parámetros que se piden por pantalla y utilizar solamente las rutas definidas en  `songifyApi/schema/OpenAPI.yaml`.
+Hay que destacar que para el correcto funcionamiento del cliente y el servidor, es necesario que el cliente introduzca correcta y exactamente los parámetros que se piden por pantalla y utilizar solamente las rutas definidas en  `OpenAPI.yaml`.
 
 
