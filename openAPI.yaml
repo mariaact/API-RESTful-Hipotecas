@@ -58,9 +58,9 @@ paths:
             text/html:
               schema:
                 $ref: '#/components/schemas/error'
-  /cliente/{id}:
+  /clientes/{dni}:
     parameters: 
-      - $ref: "#/components/parameters/id"
+      - $ref: "#/components/parameters/dni"
     get:
       tags: 
         - clientes
@@ -79,6 +79,9 @@ paths:
             text/html:
               schema:
                 $ref: "#/components/schemas/error"
+  /cliente/{id}:
+    parameters: 
+      - $ref: "#/components/parameters/id"
     put:
       tags: 
         - clientes
@@ -166,11 +169,21 @@ components:
       required: true
       schema:
         $ref: "#/components/schemas/id"
+    dni: 
+      description: Identificador único para un recurso
+      name: dni
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/dni"
 
   schemas: 
     id: 
       type: integer
       example: 1
+    dni: 
+      type: string
+      example: "58264927R"
     hipoteca:
       type: object
       properties: 
@@ -250,5 +263,3 @@ components:
               "No existe un cliente con ese identificador",
               "El recurso especificado no fue encontrado"]
       example: "Solicitud incorrecta realizada por el cliente debido a un parámetros"
-  
-  
